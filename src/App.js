@@ -1,11 +1,16 @@
+import './App.css';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Lista de Tarefas</h1>        
+        <h1>Lista de Tarefas</h1>
       </header>
+      <div className="container-task">
+      </div>
     </div>
   );
 }
 
 export default App;
+

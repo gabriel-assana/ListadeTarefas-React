@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App-header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: #3C1F7B;
+    color: rgb(233, 233, 233)
+}
+
+.container-task{
+    background-image: radial-gradient(#2B1358,#2B1754,#2B1754,#2A243A,#1e1929);
+    width: 100vw;
+    height: 90vh;
+}
+
+/* #cbc1fd; */
