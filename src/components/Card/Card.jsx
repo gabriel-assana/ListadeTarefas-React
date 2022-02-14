@@ -1,12 +1,12 @@
 import './Card.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 
-function Card() {
+function Card(props) {
     return (
       <ul className="div-task">
-        <li className="card"></li>
+        <li className="card">{props.task}</li>
       </ul>
     );
   }

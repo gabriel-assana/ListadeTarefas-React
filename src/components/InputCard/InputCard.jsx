@@ -5,9 +5,11 @@ import { FaPlus } from 'react-icons/fa';
 
 import Card from '../Card/Card';
 
+
 function InputCard() {
 
-    const [taskCurrent, setTaskCurrent] = useState('');
+    const [listTask, setListTask ] = useState([]);
+    const [taskCurrent, setTaskCurrent] = useState("");
 
     
     return (
@@ -19,13 +21,19 @@ function InputCard() {
                  onChange={value => setTaskCurrent(value.target.value)}
           />
           <button className="btn-add" onClick={()=> addNewtask()}><FaPlus/></button>
+          <ul>
+            { listTask.map((item) => {
+                  return <Card task = {item} />
+              }) 
+            }
+          </ul>
       </div>
     );
 
-   function addNewtask(event){
+   function addNewtask(){
     
-      <Card/>
-      console.log(event)
+    setListTask([...listTask, taskCurrent]);
+    setTaskCurrent("")
     
    }
 
