@@ -3,6 +3,7 @@ import './InputCard.css';
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 
+import Card from '../Card/Card';
 
 function InputCard() {
 
@@ -22,7 +23,8 @@ function InputCard() {
     );
 
    function addNewtask(event){
-
+    
+      <Card/>
       console.log(event)
     
    }
