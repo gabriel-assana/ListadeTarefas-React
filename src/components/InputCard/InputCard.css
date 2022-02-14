@@ -1,0 +1,38 @@
+.container-add-task{
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    flex-wrap:nowrap;
+    width: 100vw;
+}
+
+.input-task{
+    padding: 0.2rem;
+    margin: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px; 
+    background-color: #CCC2FE;
+    text-decoration: none;
+    outline: none;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-add{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 0.2rem;
+    margin: 1rem 0 1rem 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 2px solid #e1ebfd;; 
+    background-color: #7E64FF;
+}
+
+.btn-add:onclick{
+    transform: scale(0.978833) translateZ(0px);
+}

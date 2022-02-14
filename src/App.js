@@ -1,13 +1,16 @@
 import './App.css';
 
+import React from 'react';
+
+import ContainerTask from './components/ContainerTask/ContainerTask';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Lista de Tarefas</h1>
       </header>
-      <div className="container-task">
-      </div>
+      <ContainerTask/>
     </div>
   );
 }
