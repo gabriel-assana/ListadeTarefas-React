@@ -1,21 +1,17 @@
 import './ContainerTask.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 
-import Card from '../Card/Card';
 import InputCard from '../InputCard/InputCard';
 
 function ContainerTask() {
 
-  let [lista, setLista] = useState([])
-
-    return (
+ return (
       <div className="container-task">
         <InputCard/>
-          <Card/>
       </div>
     );
-  }
+}
   
   export default ContainerTask;
   
