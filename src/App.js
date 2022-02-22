@@ -2,7 +2,7 @@ import './App.css';
 
 import React from 'react';
 
-import ContainerTask from './components/ContainerTask/ContainerTask';
+import ContainerTask from './components/ContainerTask';
 
 function App() {
   return (

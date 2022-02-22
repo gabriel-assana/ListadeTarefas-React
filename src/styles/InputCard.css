@@ -1,9 +1,18 @@
-.container-add-task{
+.container-input-task{
     display: flex;
     height: 5rem;
     justify-content: center;
     flex-wrap:nowrap;
     width: 100vw;
+}
+
+.container-add-task{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items:center;
+   box-sizing: border-box;
 }
 
 .input-task{
@@ -35,4 +44,16 @@
 
 .btn-add:onclick{
     transform: scale(0.978833) translateZ(0px);
+}
+
+.card{
+    display: flex;
+    background: #b4b6da;
+    background: radial-gradient(circle,rgba(180,182,218,.9) 0,rgba(226,236,253,.9) 100%);
+    margin: 0 1rem 1rem 0;
+    height: 8rem;
+    width: 18rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
 }
