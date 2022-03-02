@@ -1,14 +1,40 @@
 import '../styles/InputCard.css';
 
 import React, { useState } from 'react';
+import { AiFillEdit } from 'react-icons/ai';
 import { FaPlus } from 'react-icons/fa';
 import { FiTrash } from 'react-icons/fi';
+
+import { EditCard } from './EditCard';
 
 
 function InputCard() {
 
     const [listTask, setListTask ] = useState([]);
     const [taskCurrent, setTaskCurrent] = useState("");
+
+    function handleAddNewtask(){
+
+      if(!taskCurrent){
+        
+       return alert('Não é possivel inserir Task Cards vazios !')
+        
+      }
+      setListTask([...listTask, taskCurrent]);
+      setTaskCurrent("")
+      
+     }
+  
+     function handleEditTask(task){
+        <EditCard/>
+     }
+  
+     function handleRemoveTask(id) {
+        
+      const tasklist = listTask.filter((task) => task !== id)
+  
+      setListTask(tasklist)
+     }
 
     
     return (
@@ -26,10 +52,15 @@ function InputCard() {
           <ul className="container-add-task">
             { listTask.map((task) => (
                 <li key={task} className="card" >
-                  <span cols="30" rows="10">{task}</span>
-                  <button onClick={() => handleRemoveTask(task)} type="button">
-                    <FiTrash size={16}/>
-                  </button> 
+                  <span>{task}</span>
+                  <div className="btns">
+                    <button>
+                      <AiFillEdit onClick={() => handleEditTask(task)} size={16}/>
+                    </button> 
+                    <button onClick={() => handleRemoveTask(task)} type="button">
+                      <FiTrash size={16}/>
+                    </button> 
+                  </div> 
                 </li>
                 
              ))}
@@ -40,20 +71,6 @@ function InputCard() {
     
     );
 
-   function handleAddNewtask(){
-    
-    setListTask([...listTask, taskCurrent]);
-    setTaskCurrent("")
-    
-   }
-
-
-   function handleRemoveTask(id) {
-      
-    const tasklist = listTask.filter((task) => task !== id)
-
-    setListTask(tasklist)
-   }
 }
 
 

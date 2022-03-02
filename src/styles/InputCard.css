@@ -42,8 +42,10 @@
     background-color: #7E64FF;
 }
 
-.btn-add:onclick{
-    transform: scale(0.978833) translateZ(0px);
+.btn-add:hover{
+    height: 3.2rem;
+    width: 3.2rem; 
+    filter: brightness(0.9);
 }
 
 .card{
@@ -56,4 +58,29 @@
     border-radius: 0.5rem;
     padding: 1rem;
     position: relative;
+}
+
+.card span{
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    color: #1a134d;
+    height: 70%;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+
+.btns {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.btns button {
+    border-radius: 20%;
+    border: none;
+    margin: 0 0.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #271c6c;
+    background-color: transparent;
 }
