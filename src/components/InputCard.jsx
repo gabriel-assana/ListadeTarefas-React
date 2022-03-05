@@ -13,14 +13,21 @@ function InputCard() {
     const [listTask, setListTask ] = useState([]);
     const [taskCurrent, setTaskCurrent] = useState("");
 
+    const task = {
+      id: Math.random(),
+      title: taskCurrent,
+      isComplete: false,
+    }
+
+
     function handleAddNewtask(){
 
-      if(!taskCurrent){
+      if(!task.title){
         
        return alert('Não é possivel inserir Task Cards vazios !')
         
       }
-      setListTask([...listTask, taskCurrent]);
+      setListTask([...listTask, task]);
       setTaskCurrent("")
       
      }
@@ -31,7 +38,7 @@ function InputCard() {
   
      function handleRemoveTask(id) {
         
-      const tasklist = listTask.filter((task) => task !== id)
+      const tasklist = listTask.filter((task) => task.id !== id)
   
       setListTask(tasklist)
      }
@@ -51,13 +58,13 @@ function InputCard() {
       <div className="container-add-task">
           <ul className="container-add-task">
             { listTask.map((task) => (
-                <li key={task} className="card" >
-                  <span>{task}</span>
+                <li key={task.id} className="card" >
+                  <span>{task.title}</span>
                   <div className="btns">
                     <button>
                       <AiFillEdit onClick={() => handleEditTask(task)} size={16}/>
                     </button> 
-                    <button onClick={() => handleRemoveTask(task)} type="button">
+                    <button onClick={() => handleRemoveTask(task.id)} type="button">
                       <FiTrash size={16}/>
                     </button> 
                   </div> 
