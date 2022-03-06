@@ -32,7 +32,7 @@ function InputCard() {
   
      function handleEditTask(){
 
-      if(isModalVisible == true){
+      if(isModalVisible === true){
         setIsModalVisible(false)
       }
       else{

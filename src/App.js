@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-         <img src={logo}></img>
+         <img src={logo} alt="Task Cards"></img>
          <h1>Task Cards</h1>
       </header>
       <ContainerTask/>
