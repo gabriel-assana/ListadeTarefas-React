@@ -1,9 +1,9 @@
-import './App.css';
+import './global.css';
 
 import React from 'react';
 
 import logo from '../src/assets/icons-task.png';
-import ContainerTask from './components/ContainerTask';
+import InputCard from './components/InputCard';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
          <img src={logo} alt="Task Cards"></img>
          <h1>Task Cards</h1>
       </header>
-      <ContainerTask/>
+      <InputCard/>
     </div>
   );
 }

@@ -1,23 +1,21 @@
-import '../styles/InputCard.css';
+import '../global.css';
 
 import React, { useState } from 'react';
-import { AiFillEdit } from 'react-icons/ai';
 import { FaPlus } from 'react-icons/fa';
-import { FiTrash } from 'react-icons/fi';
+
+import { CardTask } from './CardTask';
 
 function InputCard() {
 
     const [listTask, setListTask ] = useState([]);
     const [taskCurrent, setTaskCurrent] = useState("");
-       
-    
+
     const task = {
       id: Math.random(),
       description: taskCurrent,
       isComplete: false,
       visible: true,
     }
-
 
     function handleAddNewtask(){
 
@@ -30,25 +28,7 @@ function InputCard() {
       setTaskCurrent("")
       
      }
-  
-     function handleEditTask(id){
-
-      const toggleVisible = listTask.map(task => task.id === id ? {
-        ...task,
-        visible: !task.visible
-      }  : task ); 
-
-      setListTask(toggleVisible)
-     }
-  
-     function handleRemoveTask(id) {
-        
-      const tasklist = listTask.filter((task) => task.id !== id)
-  
-      setListTask(tasklist)
-     }
-
-    
+              
     return (
     <>
       <div className="container-input-task">
@@ -60,33 +40,10 @@ function InputCard() {
                  />
           <button className="btn-add" onClick={handleAddNewtask}><FaPlus/></button>
       </div>
-      <div className="container-add-task">
-          <ul className="container-add-task">
-            { listTask.map((task) => (
-                <li key={task.id} className="card" >
-                  <textarea disabled={task.visible}>{task.description}</textarea>
-                  <div className="btns">
-                    <button onClick={() => handleEditTask(task.id)} type="button">
-                      <AiFillEdit size={16}/>
-                    </button> 
-                    <button onClick={() => handleRemoveTask(task.id)} type="button">
-                      <FiTrash size={16}/>
-                    </button> 
-                  </div> 
-                </li>
-             ))}
-          </ul>
-      </div>
+      <CardTask listTask = { listTask } setListTask = { setListTask }/>
     </> 
-
-    
     );
 
 }
-
-
-
-
-
   
   export default InputCard;  
