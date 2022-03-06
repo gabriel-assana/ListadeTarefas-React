@@ -5,24 +5,22 @@ import { AiFillEdit } from 'react-icons/ai';
 import { FaPlus } from 'react-icons/fa';
 import { FiTrash } from 'react-icons/fi';
 
-import { EditCard } from './EditCard';
-
-
 function InputCard() {
 
     const [listTask, setListTask ] = useState([]);
     const [taskCurrent, setTaskCurrent] = useState("");
-
+    const [isModalVisible, setIsModalVisible] = useState(true);
+    
     const task = {
       id: Math.random(),
-      title: taskCurrent,
+      description: taskCurrent,
       isComplete: false,
     }
 
 
     function handleAddNewtask(){
 
-      if(!task.title){
+      if(!task.description){
         
        return alert('Não é possivel inserir Task Cards vazios !')
         
@@ -32,8 +30,14 @@ function InputCard() {
       
      }
   
-     function handleEditTask(task){
-        <EditCard/>
+     function handleEditTask(){
+
+      if(isModalVisible == true){
+        setIsModalVisible(false)
+      }
+      else{
+        setIsModalVisible(true)
+      }
      }
   
      function handleRemoveTask(id) {
@@ -59,17 +63,16 @@ function InputCard() {
           <ul className="container-add-task">
             { listTask.map((task) => (
                 <li key={task.id} className="card" >
-                  <span>{task.title}</span>
+                  <textarea disabled={isModalVisible}>{task.description}</textarea>
                   <div className="btns">
-                    <button>
-                      <AiFillEdit onClick={() => handleEditTask(task)} size={16}/>
+                    <button onClick={() => handleEditTask()} type="button">
+                      <AiFillEdit size={16}/>
                     </button> 
                     <button onClick={() => handleRemoveTask(task.id)} type="button">
                       <FiTrash size={16}/>
                     </button> 
                   </div> 
                 </li>
-                
              ))}
           </ul>
       </div>
