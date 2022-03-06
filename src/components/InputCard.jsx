@@ -9,12 +9,13 @@ function InputCard() {
 
     const [listTask, setListTask ] = useState([]);
     const [taskCurrent, setTaskCurrent] = useState("");
-    const [isModalVisible, setIsModalVisible] = useState(true);
+       
     
     const task = {
       id: Math.random(),
       description: taskCurrent,
       isComplete: false,
+      visible: true,
     }
 
 
@@ -30,14 +31,14 @@ function InputCard() {
       
      }
   
-     function handleEditTask(){
+     function handleEditTask(id){
 
-      if(isModalVisible === true){
-        setIsModalVisible(false)
-      }
-      else{
-        setIsModalVisible(true)
-      }
+      const toggleVisible = listTask.map(task => task.id === id ? {
+        ...task,
+        visible: !task.visible
+      }  : task ); 
+
+      setListTask(toggleVisible)
      }
   
      function handleRemoveTask(id) {
@@ -63,9 +64,9 @@ function InputCard() {
           <ul className="container-add-task">
             { listTask.map((task) => (
                 <li key={task.id} className="card" >
-                  <textarea disabled={isModalVisible}>{task.description}</textarea>
+                  <textarea disabled={task.visible}>{task.description}</textarea>
                   <div className="btns">
-                    <button onClick={() => handleEditTask()} type="button">
+                    <button onClick={() => handleEditTask(task.id)} type="button">
                       <AiFillEdit size={16}/>
                     </button> 
                     <button onClick={() => handleRemoveTask(task.id)} type="button">
