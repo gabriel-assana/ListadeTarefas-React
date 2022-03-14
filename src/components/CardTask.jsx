@@ -51,7 +51,7 @@ export function CardTask({listTask, setListTask}) {
                     }            
                     <textarea disabled={task.notVisible}>{task.description}</textarea>
                     <div className="btns">
-                    {task.isComplete 
+                    { task.isComplete 
                         ? null 
                         : <button onClick={() => handleCompleteTask(task.id, task.notVisible)} type="button">
                             <VscCheckAll size={16}/>
