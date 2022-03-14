@@ -23,7 +23,7 @@ function InputCard() {
 
       if(!task.description){
         
-        toast.warn(" Não é possivel inserir um Task Cards vazio !")
+        toast.warn(" Não é possivel inserir um Task Card vazio !")
          
         return
       }
