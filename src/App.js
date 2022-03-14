@@ -1,9 +1,12 @@
 import './global.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import logo from '../src/assets/icons-task.png';
 import InputCard from './components/InputCard';
+
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
          <h1>Task Cards</h1>
       </header>
       <InputCard/>
+      <ToastContainer/>
     </div>
   );
 }

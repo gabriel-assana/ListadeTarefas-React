@@ -1,7 +1,9 @@
 import '../global.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 import { CardTask } from './CardTask';
 
@@ -21,8 +23,9 @@ function InputCard() {
 
       if(!task.description){
         
-       return alert('Não é possivel inserir Task Cards vazios !')
-        
+        toast.warn(" Não é possivel inserir um Task Cards vazio !")
+         
+        return
       }
       setListTask([...listTask, task]);
       setTaskCurrent("")
