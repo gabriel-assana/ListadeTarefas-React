@@ -25,20 +25,36 @@ export function CardTask({listTask, setListTask}) {
         setListTask(tasklist)
        }
 
-       function handleCompleteTask(){
-           console.log("ola mundo")
+       function handleCompleteTask(id){
+           
+
+           const completeTask = listTask.map(task => task.id === id ? {
+            ...task,
+            isComplete: true,
+          }  : task ); 
+    
+          setListTask(completeTask)
+
+
        }
 
     return(
         <div className="container-add-task">
             <ul className="container-add-task">
             { listTask.map((task) => (
-                <li key={task.id} className="card" >
+                <li key={task.id} className="card" > 
+                    { task.isComplete 
+                        ? <span class="completed">Feito</span> 
+                        : null
+                    }            
                     <textarea disabled={task.visible}>{task.description}</textarea>
                     <div className="btns">
-                    <button onClick={() => handleCompleteTask(task.isComplete)} type="button">
-                        <VscCheckAll size={16}/>
-                    </button>
+                    {task.isComplete 
+                        ? null 
+                        : <button onClick={() => handleCompleteTask(task.id)} type="button">
+                            <VscCheckAll size={16}/>
+                        </button>
+                    }
                     <button onClick={() => handleEditTask(task.id)} type="button">
                         <AiFillEdit size={16}/>
                     </button> 
