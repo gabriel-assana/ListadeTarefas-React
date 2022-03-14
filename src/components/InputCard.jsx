@@ -16,7 +16,7 @@ function InputCard() {
       id: Math.random(),
       description: taskCurrent,
       isComplete: false,
-      visible: true,
+      notVisible: true,
     }
 
     function handleAddNewtask(){

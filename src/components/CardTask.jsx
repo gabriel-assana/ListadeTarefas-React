@@ -8,14 +8,16 @@ import { VscCheckAll } from 'react-icons/vsc';
 
 export function CardTask({listTask, setListTask}) {
   
-       function handleEditTask(id){
-  
-        const toggleVisible = listTask.map(task => task.id === id ? {
-          ...task,
-          visible: !task.visible
-        }  : task ); 
-  
-        setListTask(toggleVisible)
+       function handleEditTask(id , isComplete){
+        
+            if(!isComplete) {
+                const toggleVisible = listTask.map(task => task.id === id ? {
+                ...task,
+                notVisible: !task.notVisible
+                }  : task ); 
+        
+                setListTask(toggleVisible)
+            }
        }
     
        function handleRemoveTask(id) {
@@ -25,16 +27,16 @@ export function CardTask({listTask, setListTask}) {
         setListTask(tasklist)
        }
 
-       function handleCompleteTask(id){
+       function handleCompleteTask(id, notVisible){
            
-
+         if(notVisible){
            const completeTask = listTask.map(task => task.id === id ? {
             ...task,
             isComplete: true,
           }  : task ); 
     
           setListTask(completeTask)
-
+         }
 
        }
 
@@ -47,15 +49,15 @@ export function CardTask({listTask, setListTask}) {
                         ? <span class="completed">Feito</span> 
                         : null
                     }            
-                    <textarea disabled={task.visible}>{task.description}</textarea>
+                    <textarea disabled={task.notVisible}>{task.description}</textarea>
                     <div className="btns">
                     {task.isComplete 
                         ? null 
-                        : <button onClick={() => handleCompleteTask(task.id)} type="button">
+                        : <button onClick={() => handleCompleteTask(task.id, task.notVisible)} type="button">
                             <VscCheckAll size={16}/>
                         </button>
                     }
-                    <button onClick={() => handleEditTask(task.id)} type="button">
+                    <button onClick={() => handleEditTask(task.id, task.isComplete)} type="button">
                         <AiFillEdit size={16}/>
                     </button> 
                     <button onClick={() => handleRemoveTask(task.id)} type="button">
